@@ -1,0 +1,12 @@
+{
+  "name": "njs2",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "dependencies": {
+    "upper-case": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

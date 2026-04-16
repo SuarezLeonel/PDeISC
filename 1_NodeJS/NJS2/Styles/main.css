@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #F8F9FA;
+    color: #212529;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero Section Responsivo */
+.hero-title {
+    font-size: calc(1.5rem + 3vw);
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    font-size: calc(1rem + 0.5vw);
+    opacity: 0.8;
+}
+
+header {
+    padding: 3rem 1rem;
+}
+
+@media (min-width: 768px) {
+    header {
+        padding: 5rem 2rem;
+    }
+}
+
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        padding: 1rem 4rem;
+    }
+}
+
+.navbar-brand {
+    letter-spacing: -1px;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+.navbar .nav-link {
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--bs-primary)!important;
+}
