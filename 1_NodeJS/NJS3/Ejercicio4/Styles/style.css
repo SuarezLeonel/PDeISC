@@ -1,0 +1,8 @@
+#logContainer div {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.dynamic-link {
+    transition: all 0.3s ease;
+}
