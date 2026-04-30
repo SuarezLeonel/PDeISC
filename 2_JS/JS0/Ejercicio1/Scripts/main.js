@@ -1,18 +1,33 @@
-import { agregarFrutas, agregarAmigos, agregarSiEsMayor } from '../Modules/arrayMethods.js';
+import { agregarFruta, agregarAmigos, agregarSiEsMayor } from '../Modules/arrayMethods.js';
 
 // --- Parte 1: Frutas ---
 let frutas = [];
+let countFrutas = 0;
 const frutasDisplay = document.getElementById('frutas-display');
 const btnFrutas = document.getElementById('btn-frutas');
+const frutaInput = document.getElementById('fruta-input');
+const frutasCountText = document.getElementById('frutas-count');
 
-// Inicialización
+// Inicialización de la UI
 frutasDisplay.innerText = `Array: ${JSON.stringify(frutas)}`;
 
+// Evento para agregar fruta desde el input
 btnFrutas.addEventListener('click', () => {
-    frutas = agregarFrutas(frutas, 'Manzana', 'Pera', 'Uva');
-    frutasDisplay.innerText = `Array: ${JSON.stringify(frutas)}`;
-    btnFrutas.disabled = true;
-    btnFrutas.innerText = 'Frutas agregadas';
+    const nombre = frutaInput.value.trim();
+    if (nombre) {
+        frutas = agregarFruta(frutas, nombre);
+        countFrutas++;
+        frutasDisplay.innerText = `Array: ${JSON.stringify(frutas)}`;
+        frutasCountText.innerText = `Frutas agregadas: ${countFrutas}/3`;
+        frutaInput.value = '';
+        
+        // Límite de 3 frutas
+        if (countFrutas >= 3) {
+            btnFrutas.disabled = true;
+            btnFrutas.innerText = 'Límite alcanzado';
+            frutaInput.disabled = true;
+        }
+    }
 });
 
 // --- Parte 2: Amigos ---
@@ -23,9 +38,10 @@ const btnAmigos = document.getElementById('btn-amigos');
 const amigoInput = document.getElementById('amigo-input');
 const amigosCountText = document.getElementById('amigos-count');
 
-// Inicialización
+// Inicialización de la UI
 amigosDisplay.innerText = `Amigos: ${JSON.stringify(amigos)}`;
 
+// Evento para agregar amigos desde el input
 btnAmigos.addEventListener('click', () => {
     const nombre = amigoInput.value.trim();
     if (nombre) {
@@ -35,6 +51,7 @@ btnAmigos.addEventListener('click', () => {
         amigosCountText.innerText = `Amigos agregados: ${countAmigos}/3`;
         amigoInput.value = '';
         
+        // Límite de 3 amigos adicionales
         if (countAmigos >= 3) {
             btnAmigos.disabled = true;
             btnAmigos.innerText = 'Límite alcanzado';
@@ -50,9 +67,10 @@ const btnNums = document.getElementById('btn-nums');
 const numInput = document.getElementById('num-input');
 const msgNums = document.getElementById('msg-nums');
 
-// Inicialización
+// Inicialización de la UI
 numsDisplay.innerText = `Números: ${JSON.stringify(numeros)}`;
 
+// Evento para agregar números bajo condición
 btnNums.addEventListener('click', () => {
     const val = parseInt(numInput.value);
     if (isNaN(val)) return;
@@ -61,6 +79,7 @@ btnNums.addEventListener('click', () => {
     numeros = result.newArr;
     numsDisplay.innerText = `Números: ${JSON.stringify(numeros)}`;
 
+    // Feedback visual del resultado
     if (result.success) {
         msgNums.innerText = '¡Agregado con éxito!';
         msgNums.className = 'mt-2 fw-bold text-success';
@@ -72,6 +91,7 @@ btnNums.addEventListener('click', () => {
 });
 
 // --- Toggle Global ---
+// Muestra u oculta las tarjetas del ejercicio
 const btnToggle = document.getElementById('btn-toggle');
 const cards = document.querySelectorAll('.card');
 btnToggle.addEventListener('click', () => {

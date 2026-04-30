@@ -6,9 +6,10 @@ const resLetters = document.getElementById('res-letters');
 const lettersDisplay = document.getElementById('letters-display');
 const btnLetters = document.getElementById('btn-letters');
 
-// Inicialización
+// Inicialización de la UI
 if (lettersDisplay) lettersDisplay.innerText = `Letras: ${JSON.stringify(letras)}`;
 
+// Evento para invertir el orden del array de letras (reverse)
 btnLetters.addEventListener('click', () => {
     const inverted = invertirLetras(letras);
     resLetters.innerText = `Resultado: ${JSON.stringify(inverted)}`;
@@ -21,9 +22,10 @@ const resNums = document.getElementById('res-nums');
 const numsDisplay = document.getElementById('nums-display');
 const btnNums = document.getElementById('btn-nums');
 
-// Inicialización
+// Inicialización de la UI
 if (numsDisplay) numsDisplay.innerText = `Números: ${JSON.stringify(nums)}`;
 
+// Evento para invertir el orden del array de números
 btnNums.addEventListener('click', () => {
     const inverted = invertirNumeros(nums);
     resNums.innerText = `Resultado: ${JSON.stringify(inverted)}`;
@@ -35,6 +37,7 @@ const textInput = document.getElementById('text-input');
 const resText = document.getElementById('res-text');
 const btnText = document.getElementById('btn-text');
 
+// Evento para revertir un string ingresado por el usuario
 btnText.addEventListener('click', () => {
     const val = textInput.value;
     if (val) {

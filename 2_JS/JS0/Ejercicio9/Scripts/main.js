@@ -5,9 +5,10 @@ const nombres = ["Ana", "Luis", "Pepe"];
 const resNames = document.getElementById('res-names');
 const namesDisplay = document.getElementById('names-display');
 
-// Inicialización
+// Inicialización de la UI
 if (namesDisplay) namesDisplay.innerText = `Nombres: ${JSON.stringify(nombres)}`;
 
+// Evento para iterar nombres y mostrar saludos (forEach)
 document.getElementById('btn-names').addEventListener('click', () => {
     resNames.innerHTML = '';
     saludarNombres(nombres, (saludo) => {
@@ -20,9 +21,10 @@ const nums = [1, 5, 10, 20];
 const resNums = document.getElementById('res-nums');
 const numsDisplay = document.getElementById('nums-display');
 
-// Inicialización
+// Inicialización de la UI
 if (numsDisplay) numsDisplay.innerText = `Números: ${JSON.stringify(nums)}`;
 
+// Evento para iterar números y mostrar sus dobles
 document.getElementById('btn-nums').addEventListener('click', () => {
     resNums.innerHTML = '';
     duplicarNumeros(nums, (doble) => {
@@ -39,9 +41,10 @@ const usuarios = [
 const usersDisplay = document.getElementById('users-display');
 const resUsers = document.getElementById('res-users');
 
-// Inicialización
+// Inicialización de la UI
 if (usersDisplay) usersDisplay.innerText = `Usuarios: ${JSON.stringify(usuarios)}`;
 
+// Evento para iterar objetos y mostrar sus propiedades
 document.getElementById('btn-users').addEventListener('click', () => {
     resUsers.innerHTML = '';
     mostrarUsuarios(usuarios, (detalle) => {

@@ -6,9 +6,10 @@ const btnNums = document.getElementById('btn-nums');
 const resNums = document.getElementById('res-nums');
 const numsDisplay = document.getElementById('nums-display');
 
-// Inicialización
+// Inicialización de la UI
 if (numsDisplay) numsDisplay.innerText = `Números: ${JSON.stringify(nums)}`;
 
+// Evento para obtener una copia de los primeros 3 números (slice)
 btnNums.addEventListener('click', () => {
     const copia = copiarPrimerosTres(nums);
     resNums.innerText = `Copia generada: ${JSON.stringify(copia)}`;
@@ -21,9 +22,10 @@ const btnMovies = document.getElementById('btn-movies');
 const resMovies = document.getElementById('res-movies');
 const moviesDisplay = document.getElementById('movies-display');
 
-// Inicialización
+// Inicialización de la UI
 if (moviesDisplay) moviesDisplay.innerText = `Películas: ${JSON.stringify(movies)}`;
 
+// Evento para extraer una copia parcial del array de películas
 btnMovies.addEventListener('click', () => {
     const copia = copiarPeliculasParcial(movies);
     resMovies.innerText = `Copia generada: ${JSON.stringify(copia)}`;
@@ -36,9 +38,10 @@ const btnLast = document.getElementById('btn-last');
 const resLast = document.getElementById('res-last');
 const lastDisplay = document.getElementById('last-display');
 
-// Inicialización
+// Inicialización de la UI
 if (lastDisplay) lastDisplay.innerText = `Superhéroes: ${JSON.stringify(superheroes)}`;
 
+// Evento para copiar los últimos 3 elementos usando slice(-3)
 btnLast.addEventListener('click', () => {
     const copia = copiarUltimosTres(superheroes);
     resLast.innerText = `Copia generada: ${JSON.stringify(copia)}`;

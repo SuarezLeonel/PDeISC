@@ -5,10 +5,11 @@ let letras = ['a', 'b', 'c'];
 const letrasDisplay = document.getElementById('letras-display');
 const btnLetras = document.getElementById('btn-letras');
 
+// Inicialización de la UI
 letrasDisplay.innerText = `Letras: ${JSON.stringify(letras)}`;
 
+// Evento para eliminar elementos específicos con splice
 btnLetras.addEventListener('click', () => {
-    // Para cumplir con la consigna de eliminar dos desde pos 1
     if (letras.length >= 3) {
         letras = eliminarLetras(letras);
         letrasDisplay.innerText = `Letras: ${JSON.stringify(letras)}`;
@@ -23,9 +24,10 @@ const nombresDisplay = document.getElementById('nombres-display');
 const btnNombre = document.getElementById('btn-nombre');
 const nombreInput = document.getElementById('nombre-input');
 
-// Inicialización
+// Inicialización de la UI
 nombresDisplay.innerText = `Nombres: ${JSON.stringify(nombres)}`;
 
+// Evento para insertar un nombre en medio del array
 btnNombre.addEventListener('click', () => {
     const val = nombreInput.value.trim();
     if (val) {
@@ -46,8 +48,10 @@ const posInput = document.getElementById('pos-input');
 const n1Input = document.getElementById('n1-input');
 const n2Input = document.getElementById('n2-input');
 
+// Inicialización de la UI
 reemplazoDisplay.innerText = `Elementos: ${JSON.stringify(elementos)}`;
 
+// Evento para reemplazar elementos en una posición elegida
 btnReemplazo.addEventListener('click', () => {
     const pos = parseInt(posInput.value) || 0;
     const n1 = n1Input.value.trim();

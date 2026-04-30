@@ -26,9 +26,13 @@
             <!-- Parte 1: Frutas -->
             <div class="col-12 col-lg-10 col-xl-8">
                 <div class="card p-4">
-                    <h4 class="section-title">1. Agregar 3 Frutas</h4>
+                    <h4 class="section-title">1. Agregar Frutas</h4>
                     <div id="frutas-display" class="display-area mb-3 text-break">Array: []</div>
-                    <button id="btn-frutas" class="btn btn-primary fw-bold w-100">Agregar Manzana, Pera y Uva</button>
+                    <div class="input-group mb-3 flex-column flex-md-row">
+                        <input type="text" id="fruta-input" class="form-control mb-2 mb-md-0" placeholder="Nombre de la fruta...">
+                        <button id="btn-frutas" class="btn btn-primary fw-bold ms-md-2">Agregar Fruta</button>
+                    </div>
+                    <div id="frutas-count" class="small text-muted">Frutas agregadas: 0/3</div>
                 </div>
             </div>
 
