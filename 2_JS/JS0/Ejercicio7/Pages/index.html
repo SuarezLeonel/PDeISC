@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 - .indexOf()</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; }
+        .card { border-radius: 1rem; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        .display-area { background: #fff; padding: 1.2rem; border-radius: 0.8rem; border: 1px solid #e2e8f0; font-family: monospace; color: #6366f1; }
+        .section-title { font-weight: 700; color: #1e293b; border-left: 4px solid #6366f1; padding-left: 0.8rem; }
+        @media (max-width: 576px) {
+            .display-area { padding: 0.8rem; font-size: 0.9rem; }
+            .card { padding: 1.2rem !important; }
+            h1 { font-size: 1.75rem; }
+            .btn { width: 100%; }
+            .input-group { flex-direction: column; }
+            .input-group > .form-control { width: 100%; border-radius: 0.5rem !important; margin-bottom: 0.5rem; }
+            .input-group > .btn { width: 100%; border-radius: 0.5rem !important; margin-left: 0 !important; }
+        }
+    </style>
+</head>
+<body class="py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 fw-bold">Localización de Elementos: .indexOf()</h1>
+
+        <div class="card p-4">
+            <h5 class="section-title">1. Buscar "perro"</h5>
+            <div id="animales-display" class="display-area mb-3">Animales: ["gato", "perro", "pájaro"]</div>
+            <button id="btn-perro" class="btn btn-indigo text-white" style="background-color: #6366f1;">Buscar índice de "perro"</button>
+            <div id="res-perro" class="mt-2 fw-bold"></div>
+        </div>
+
+        <div class="card p-4">
+            <h5 class="section-title">2. Buscar el número 50</h5>
+            <div id="nums-display" class="display-area mb-3">Números: [10, 25, 50, 75, 100]</div>
+            <button id="btn-50" class="btn btn-dark">Buscar índice de 50</button>
+            <div id="res-50" class="mt-2 fw-bold"></div>
+        </div>
+
+        <div class="card p-4">
+            <h5 class="section-title">3. Buscar Ciudades</h5>
+            <div id="cities-display" class="display-area mb-3">Ciudades: ["Londres", "París", "Madrid", "Roma"]</div>
+            <div class="input-group">
+                <input type="text" id="city-input" class="form-control" placeholder="Escribe una ciudad...">
+                <button id="btn-city" class="btn btn-outline-primary">Buscar Ciudad</button>
+            </div>
+            <div id="res-city" class="mt-2 fw-bold"></div>
+        </div>
+    </div>
+    <script type="module" src="../Scripts/main.js"></script>
+</body>
+</html>

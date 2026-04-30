@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - .pop()</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8f9fa; }
+        .card { border-radius: 1rem; border: none; box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        .display-area { background: #fff; padding: 1.2rem; border-radius: 0.8rem; border: 1px solid #dee2e6; font-family: monospace; color: #dc3545; }
+        .section-title { font-weight: 700; color: #343a40; border-left: 4px solid #dc3545; padding-left: 0.8rem; }
+        @media (max-width: 576px) {
+            .display-area { padding: 1rem; font-size: 0.9rem; }
+            .card { padding: 1.5rem !important; }
+            h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body class="py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 fw-bold px-3">Gestión de Arrays: .pop()</h1>
+
+        <div class="row justify-content-center px-2">
+            <div class="col-12 col-lg-10 col-xl-8">
+                <div class="card p-4">
+                    <h5 class="section-title">1. Eliminar Último Animal</h5>
+                    <div id="animales-display" class="display-area mb-3 text-break">Animales: ["Perro", "Gato", "Loro"]</div>
+                    <button id="btn-animales" class="btn btn-danger w-100">Eliminar último</button>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-10 col-xl-8">
+                <div class="card p-4">
+                    <h5 class="section-title">2. Lista de Compras</h5>
+                    <div id="compras-display" class="display-area mb-3 text-break">Productos: ["Pan", "Leche", "Huevo"]</div>
+                    <button id="btn-compras" class="btn btn-warning w-100">Quitar último y mostrar</button>
+                    <div id="msg-compras" class="mt-2 fw-bold"></div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-10 col-xl-8">
+                <div class="card p-4">
+                    <h5 class="section-title">3. Vaciar Array con While</h5>
+                    <div id="vaciado-display" class="display-area mb-3 text-break">Datos: [1, 2, 3, 4, 5]</div>
+                    <button id="btn-vaciar" class="btn btn-dark w-100">Vaciar todo el array</button>
+                    <div id="msg-vaciar" class="mt-2 small text-muted"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../Scripts/main.js"></script>
+</body>
+</html>

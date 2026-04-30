@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8 - .includes()</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; }
+        .card { border-radius: 1rem; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 2rem; }
+        .display-area { background: #f8f9fa; padding: 1.2rem; border-radius: 0.8rem; border: 1px solid #eee; font-family: monospace; color: #2d3436; }
+        .section-title { font-weight: 700; color: #2d3436; border-left: 4px solid #2d3436; padding-left: 0.8rem; }
+        @media (max-width: 576px) {
+            .display-area { padding: 0.8rem; font-size: 0.9rem; }
+            .card { padding: 1.2rem !important; }
+            h1 { font-size: 1.75rem; }
+            .btn { width: 100%; }
+            .input-group { flex-direction: column; }
+            .input-group > .form-control { width: 100%; border-radius: 0.5rem !important; margin-bottom: 0.5rem; }
+            .input-group > .btn { width: 100%; border-radius: 0.5rem !important; margin-left: 0 !important; }
+        }
+    </style>
+</head>
+<body class="py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 fw-bold">Verificación de Existencia: .includes()</h1>
+
+        <div class="card p-4">
+            <h5 class="section-title">1. Comprobar si hay un "admin"</h5>
+            <div id="roles-display" class="display-area mb-3">Roles: ["user", "editor", "guest"]</div>
+            <button id="btn-admin" class="btn btn-dark">¿Hay un admin?</button>
+            <div id="res-admin" class="mt-2 fw-bold"></div>
+        </div>
+
+        <div class="card p-4">
+            <h5 class="section-title">2. ¿Existe el color verde?</h5>
+            <div id="colores-display" class="display-area mb-3">Colores: ["rojo", "azul", "amarillo"]</div>
+            <button id="btn-verde" class="btn btn-success">Verificar verde</button>
+            <div id="res-verde" class="mt-2 fw-bold"></div>
+        </div>
+
+        <div class="card p-4">
+            <h5 class="section-title">3. Agregar sin duplicar</h5>
+            <div id="nums-display" class="display-area mb-3">Números: [1, 2, 3]</div>
+            <div class="input-group">
+                <input type="number" id="num-input" class="form-control" placeholder="Número a sumar...">
+                <button id="btn-sumar" class="btn btn-primary">Intentar Sumar</button>
+            </div>
+            <div id="res-sumar" class="mt-2 fw-bold"></div>
+        </div>
+    </div>
+    <script type="module" src="../Scripts/main.js"></script>
+</body>
+</html>
