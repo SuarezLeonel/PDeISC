@@ -4,3 +4,10 @@ node_modules/
 .trae/
 .vscode/
 package-lock.json
+
+# Carpetas de resultados y subidas de los proyectos
+**/results/
+**/uploads/
+*.txt
+!**/Modules/*.txt
+!**/exercises/*.txt

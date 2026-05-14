@@ -1,5 +1,5 @@
 /**
- * Genera el HTML de una tarjeta (card) de Bootstrap sin el botón "Ver más"
+ * Genera el HTML de una tarjeta de Boostrap
  */
 export const createCardHtml = (id, title, description, imageUrl, typeClass) => {
     return `

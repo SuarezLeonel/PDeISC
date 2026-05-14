@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 1: Ingreso de Números</title>
+    <link rel="stylesheet" href="/Styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h2>Sistema de Ingreso</h2>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙 Cambiar Tema</button>
+    </header>
+
+    <main class="main-container">
+        <div class="content-wrapper">
+            <!-- Sección de Carga -->
+            <section class="card load-section">
+                <h1>Carga de Números Reales</h1>
+                <p>Ingrese entre 10 y 20 números para habilitar el guardado.</p>
+                <br>
+
+                <form id="numberForm" class="form-group">
+                    <input type="number" id="numberInput" placeholder="Ingrese un número" step="any" required>
+                    <button type="submit" class="btn-add">Agregar Número</button>
+                </form>
+                <div id="errorMsg" class="error-msg"></div>
+                <div id="successMsg" class="success-msg"></div>
+                
+                <button id="saveBtn" class="btn-save" disabled>Finalizar y Guardar</button>
+            </section>
+
+            <!-- Sección de Resultados -->
+            <section class="card results-section">
+                <h3>Números Ingresados (<span id="count">0</span>/20)</h3>
+                <div class="results-panel">
+                    <div id="numberGrid" class="number-grid">
+                        <!-- Los números aparecerán aquí -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="/Scripts/app.js"></script>
+</body>
+</html>
