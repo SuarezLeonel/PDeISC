@@ -1,0 +1,13 @@
+{
+  "name": "proyecto1-spa",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "SPA con métodos de lectura de formularios",
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  }
+}

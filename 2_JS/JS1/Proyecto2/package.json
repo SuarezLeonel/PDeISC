@@ -1,0 +1,13 @@
+{
+  "name": "proyecto2-catalogo-deportivo",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Catálogo de artículos deportivos con métodos de array (push, unshift, spread, concat)",
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  }
+}

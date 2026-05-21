@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 3: People Registry</title>
+    <link rel="stylesheet" href="./Styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Registro Nacional de Personas</h1>
+            <button id="theme-toggle" class="btn-theme">🌙 Modo Oscuro</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-section card">
+            <h2>Ficha de Registro</h2>
+            <form id="person-form">
+                <div class="form-grid">
+                    <div class="form-group" data-field="firstName">
+                        <label for="firstName">Nombre:</label>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" maxlength="50" required>
+                        <span class="field-error" id="error-firstName" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="lastName">
+                        <label for="lastName">Apellido:</label>
+                        <input type="text" id="lastName" name="lastName" autocomplete="family-name" maxlength="50" required>
+                        <span class="field-error" id="error-lastName" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="dob">
+                        <label for="dob">Fecha de Nacimiento:</label>
+                        <input type="date" id="dob" name="dob" required>
+                        <span class="field-error" id="error-dob" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="age">
+                        <label for="age">Edad (calculada automáticamente):</label>
+                        <input type="text" id="age" name="age" readonly placeholder="Completá la fecha de nacimiento" tabindex="-1" aria-readonly="true">
+                        <span class="field-hint">Se obtiene a partir de la fecha de nacimiento.</span>
+                    </div>
+                    <div class="form-group" data-field="sex">
+                        <label>Sexo:</label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="sex" value="Masculino" required> M</label>
+                            <label><input type="radio" name="sex" value="Femenino"> F</label>
+                        </div>
+                        <span class="field-error" id="error-sex" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="dni">
+                        <label for="dni">Documento (DNI):</label>
+                        <input type="text" id="dni" name="dni" inputmode="numeric" maxlength="10" placeholder="12345678" required>
+                        <span class="field-error" id="error-dni" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="civilStatus">
+                        <label for="civilStatus">Estado Civil:</label>
+                        <select id="civilStatus" name="civilStatus" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Soltero/a">Soltero/a</option>
+                            <option value="Casado/a">Casado/a</option>
+                            <option value="Divorciado/a">Divorciado/a</option>
+                            <option value="Viudo/a">Viudo/a</option>
+                        </select>
+                        <span class="field-error" id="error-civilStatus" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="nationality">
+                        <label for="nationality">Nacionalidad:</label>
+                        <select id="nationality" name="nationality" required>
+                            <option value="">Seleccione un país...</option>
+                        </select>
+                        <span class="field-error" id="error-nationality" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="phone">
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Ej: 11-1234-5678" maxlength="20" required>
+                        <span class="field-error" id="error-phone" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="email">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" autocomplete="email" maxlength="100" required>
+                        <span class="field-error" id="error-email" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="hasChildren">
+                        <label>¿Tiene hijos?</label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="hasChildren" value="yes"> Sí</label>
+                            <label><input type="radio" name="hasChildren" value="no" checked> No</label>
+                        </div>
+                        <span class="field-error" id="error-hasChildren" role="alert"></span>
+                    </div>
+                    <div id="children-count-group" class="form-group hidden" data-field="childrenCount">
+                        <label for="childrenCount">Cantidad de hijos:</label>
+                        <input type="number" id="childrenCount" name="childrenCount" min="1" max="25">
+                        <span class="field-error" id="error-childrenCount" role="alert"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Guardar Registro</button>
+            </form>
+        </section>
+
+        <section class="list-section card">
+            <h2>Registros Guardados (LocalStorage)</h2>
+            <div id="registry-list" class="registry-list">
+                <!-- Se cargará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container"></div>
+
+    <script type="module" src="./Scripts/app.js"></script>
+</body>
+</html>

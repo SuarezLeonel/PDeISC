@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 2: Catálogo Deportivo</title>
+    <link rel="stylesheet" href="./Styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Catálogo de Artículos Deportivos</h1>
+            <button id="theme-toggle" class="btn-theme" type="button">🌙 Modo Oscuro</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-section card">
+            <h2>Registrar artículo</h2>
+            <p class="subtitle">Completá el formulario y elegí cómo guardarlo en el array (push, unshift, spread o concat).</p>
+
+            <form id="sports-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del artículo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Pelota oficial FIFA" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deporte">Deporte:</label>
+                        <select id="deporte" name="deporte" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Futbol">Fútbol</option>
+                            <option value="Basquet">Básquet</option>
+                            <option value="Tenis">Tenis</option>
+                            <option value="Natacion">Natación</option>
+                            <option value="Running">Running</option>
+                            <option value="Ciclismo">Ciclismo</option>
+                            <option value="Fitness">Fitness</option>
+                            <option value="Rugby">Rugby</option>
+                            <option value="Hockey">Hockey</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marca">Marca:</label>
+                        <input type="text" id="marca" name="marca" placeholder="Ej: Adidas, Nike..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio">Precio (ARS):</label>
+                        <input type="number" id="precio" name="precio" min="1" step="0.01" placeholder="15000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="talla">Talla / Medida:</label>
+                        <input type="text" id="talla" name="talla" placeholder="Ej: M, 42, 5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="material">Material:</label>
+                        <select id="material" name="material" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Cuero">Cuero</option>
+                            <option value="Sintetico">Sintético</option>
+                            <option value="Goma">Goma</option>
+                            <option value="Metal">Metal</option>
+                            <option value="Textil">Textil</option>
+                            <option value="Carbono">Fibra de carbono</option>
+                            <option value="Mixto">Mixto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">Stock disponible:</label>
+                        <input type="number" id="stock" name="stock" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechaIngreso">Fecha de ingreso:</label>
+                        <input type="date" id="fechaIngreso" name="fechaIngreso" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="codigo">Código de referencia:</label>
+                        <input type="text" id="codigo" name="codigo" placeholder="DEP-00001" required>
+                    </div>
+
+                    <div class="form-group form-group--full">
+                        <label>Condición del artículo:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="condicion" value="Nuevo" required> Nuevo</label>
+                            <label><input type="radio" name="condicion" value="Usado"> Usado</label>
+                            <label><input type="radio" name="condicion" value="Outlet"> Outlet</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="push-btn" class="btn-primary">Guardar al final (push)</button>
+                    <button type="button" id="unshift-btn" class="btn-secondary">Guardar al inicio (unshift)</button>
+                    <button type="button" id="spread-btn" class="btn-accent">Guardar con spread [...]</button>
+                    <button type="button" id="concat-btn" class="btn-concat">Guardar con concat()</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="list-section card">
+            <div class="list-header">
+                <h2>Artículos cargados</h2>
+                <div class="search-box">
+                    <input type="search" id="search-input" placeholder="Buscar por nombre, código o deporte...">
+                </div>
+            </div>
+
+            <p class="array-info">Total en el array: <strong id="array-count">0</strong> artículo(s)</p>
+
+            <div class="table-container">
+                <table id="catalog-table">
+                    <thead>
+                        <tr>
+                            <th>Artículo</th>
+                            <th>Deporte</th>
+                            <th>Marca</th>
+                            <th>Precio</th>
+                            <th>Talla</th>
+                            <th>Material</th>
+                            <th>Stock</th>
+                            <th>Condición</th>
+                            <th>Fecha</th>
+                            <th>Código</th>
+                            <th>Método</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalog-body"></tbody>
+                </table>
+
+                <div id="mobile-list" class="mobile-grid"></div>
+                <p id="empty-msg" class="empty-msg">No hay artículos registrados. Usá el formulario para agregar el primero.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container"></div>
+
+    <script type="module" src="./Scripts/app.js"></script>
+</body>
+</html>

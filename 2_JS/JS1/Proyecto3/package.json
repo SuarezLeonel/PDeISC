@@ -1,0 +1,13 @@
+{
+  "name": "proyecto3-people-registry",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Registro de personas con LocalStorage y validación avanzada",
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  }
+}

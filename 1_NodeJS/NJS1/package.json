@@ -4,6 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ej1": "node ejercicios/ejercicio1.js",
+    "ej2": "node ejercicios/ejercicio2.js",
+    "ej3": "node ejercicios/ejercicio3.js",
+    "ej4": "node ejercicios/ejercicio4.js",
+    "ej5": "node ejercicios/ejercicio5.js",
+    "clase:saludo": "node ejercicios/en-clase/saludo.js",
+    "clase:info": "node ejercicios/en-clase/info-sistema.js",
+    "clase:fecha": "node ejercicios/en-clase/fecha-hora.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
