@@ -1,0 +1,16 @@
+{
+  "name": "js4-proyecto3",
+  "version": "1.0.0",
+  "description": "Proyecto 3: Buscador en tiempo real con Fetch y Axios",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["api", "fetch", "axios", "javascript", "buscador"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.1"
+  }
+}

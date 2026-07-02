@@ -1,0 +1,13 @@
+{
+  "name": "proyecto2-inventory",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Gestión de inventario con métodos de array",
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  }
+}

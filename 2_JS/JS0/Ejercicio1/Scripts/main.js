@@ -1,4 +1,9 @@
 import { agregarFruta, agregarAmigos, agregarSiEsMayor } from '../Modules/arrayMethods.js';
+import { initTheme, toggleTheme } from '../Modules/theme.js';
+
+// Inicializar tema
+initTheme();
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // --- Parte 1: Frutas ---
 let frutas = [];

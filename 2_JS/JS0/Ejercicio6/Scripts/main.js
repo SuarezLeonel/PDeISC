@@ -1,4 +1,9 @@
 import { copiarPrimerosTres, copiarPeliculasParcial, copiarUltimosTres } from '../Modules/arrayMethods.js';
+import { initTheme, toggleTheme } from '../Modules/theme.js';
+
+// Inicializar tema
+initTheme();
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // 1. Números
 const nums = [10, 20, 30, 40, 50, 60];

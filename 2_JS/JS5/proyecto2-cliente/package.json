@@ -1,0 +1,16 @@
+{
+  "name": "proyecto2-cliente",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cliente de Consumo de API de Alumnos",
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "njs1-ejercicio4",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js"
+}

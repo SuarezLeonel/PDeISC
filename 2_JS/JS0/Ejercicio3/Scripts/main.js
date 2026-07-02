@@ -1,4 +1,9 @@
 import { agregarColores, agregarTareaUrgente, agregarUsuarioConectado } from '../Modules/arrayMethods.js';
+import { initTheme, toggleTheme } from '../Modules/theme.js';
+
+// Inicializar tema
+initTheme();
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // 1. Colores
 let colores = [];

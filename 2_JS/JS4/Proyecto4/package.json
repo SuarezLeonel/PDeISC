@@ -1,0 +1,16 @@
+{
+  "name": "js4-proyecto4",
+  "version": "1.0.0",
+  "description": "Proyecto 4: API propia con Express y consumo con Fetch/Axios",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["api", "fetch", "axios", "javascript", "express"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.1"
+  }
+}

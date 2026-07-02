@@ -1,4 +1,9 @@
 import { filtrarMayoresA10, filtrarPalabrasLargas, filtrarUsuariosActivos } from '../Modules/arrayMethods.js';
+import { initTheme, toggleTheme } from '../Modules/theme.js';
+
+// Inicializar tema
+initTheme();
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // 1. Números
 const nums = [5, 12, 8, 130, 44, 2, 19];

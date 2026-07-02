@@ -1,4 +1,9 @@
 import { ordenarNumerosAsc, ordenarPalabrasAlfa, ordenarUsuariosPorEdad } from '../Modules/arrayMethods.js';
+import { initTheme, toggleTheme } from '../Modules/theme.js';
+
+// Inicializar tema
+initTheme();
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // 1. Números
 const nums = [40, 100, 1, 5, 25, 10];

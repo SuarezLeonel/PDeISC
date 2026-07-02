@@ -1,0 +1,497 @@
+/**
+ * @file global.css
+ * @description Estilos globales con soporte para tema claro/oscuro y diseño responsive mejorado
+ */
+
+/**
+ * Variables CSS para el tema claro
+ */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border-color: #dee2e6;
+  --primary-color: #6610f2;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * Variables CSS para el tema oscuro (se activa con la clase .dark-mode)
+ */
+body.dark-mode {
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a3e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #b0b0b0;
+  --border-color: #3d3d6a;
+  --primary-color: #9d4edd;
+  --card-bg: #1a1a3e;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/**
+ * Reset básico de estilos
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * Estilos generales del body
+ */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/**
+ * Contenedor de ancho completo
+ */
+.container-fluid {
+  width: 100%;
+  padding: 0;
+}
+
+/**
+ * Estilos del encabezado con gradiente
+ */
+.header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #7b2cbf 100%);
+  padding: 3rem 2rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+/**
+ * Botón de cambio de tema con efecto glassmorphism
+ */
+.theme-toggle {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.875rem 1.75rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/**
+ * Contenido principal
+ */
+.main-content {
+  padding: 4rem 2rem;
+}
+
+/**
+ * Contenedor de estadísticas
+ */
+.stats-container {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/**
+ * Tarjeta de estadística individual
+ */
+.stat-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/**
+ * Sección de la tabla de alumnos
+ */
+.alumnos-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/**
+ * Encabezado de la sección con botón de actualizar
+ */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/**
+ * Botón de actualización
+ */
+.refresh-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/**
+ * Contenedor de la tabla
+ */
+.alumnos-table-container {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/**
+ * Tabla de alumnos
+ */
+.alumnos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.alumnos-table th {
+  background-color: var(--bg-secondary);
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.alumnos-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.alumnos-table tr:last-child td {
+  border-bottom: none;
+}
+
+/**
+ * Avatar circular del alumno con gradiente
+ */
+.alumno-avatar {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), #7b2cbf);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.alumno-nombre {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/**
+ * Estado de carga
+ */
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+/**
+ * Mensaje de error
+ */
+.error-message {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* ============================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ============================================ */
+
+/**
+ * Media Query para tablets (máximo 1024px)
+ */
+@media (max-width: 1024px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .main-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .alumnos-table {
+    font-size: 0.9rem;
+  }
+
+  .alumnos-table th,
+  .alumnos-table td {
+    padding: 1rem;
+  }
+
+  .alumno-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .alumno-nombre {
+    font-size: 1rem;
+  }
+}
+
+/**
+ * Media Query para dispositivos móviles (máximo 768px)
+ */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .theme-toggle {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .main-content {
+    padding: 2rem 1rem;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.25rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Convertir tabla a tarjetas para móviles */
+  .alumnos-table-container {
+    overflow: visible;
+  }
+
+  .alumnos-table,
+  .alumnos-table thead,
+  .alumnos-table tbody,
+  .alumnos-table th,
+  .alumnos-table td,
+  .alumnos-table tr {
+    display: block;
+  }
+
+  .alumnos-table thead {
+    display: none;
+  }
+
+  .alumnos-table tr {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--bg-secondary);
+  }
+
+  .alumnos-table td {
+    padding: 0.75rem 0;
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .alumnos-table td::before {
+    position: absolute;
+    top: 0.75rem;
+    left: 0;
+    width: 45%;
+    padding-right: 0.75rem;
+    white-space: nowrap;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  /* Etiquetas para cada campo */
+  .alumnos-table td:nth-of-type(1)::before { content: "Alumno"; }
+  .alumnos-table td:nth-of-type(2)::before { content: "ID"; }
+  .alumnos-table td:nth-of-type(3)::before { content: "Nombre"; }
+  .alumnos-table td:nth-of-type(4)::before { content: "Apellido"; }
+  .alumnos-table td:nth-of-type(5)::before { content: "Edad"; }
+
+  .alumno-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  .alumno-nombre {
+    font-size: 1.05rem;
+  }
+}
+
+/**
+ * Media Query para dispositivos móviles pequeños (máximo 480px)
+ */
+@media (max-width: 480px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .theme-toggle {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .stat-card {
+    padding: 1.25rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .refresh-btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .alumnos-table tr {
+    padding: 0.75rem;
+  }
+
+  .alumnos-table td {
+    padding: 0.5rem 0;
+    padding-left: 45%;
+    font-size: 0.95rem;
+  }
+
+  .alumno-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    margin-right: 0.75rem;
+  }
+
+  .alumno-nombre {
+    font-size: 1rem;
+  }
+
+  .loading,
+  .error-message {
+    padding: 2rem 1rem;
+    font-size: 1.1rem;
+  }
+}

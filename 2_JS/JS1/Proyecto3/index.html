@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 3: People Registry</title>
+    <link rel="stylesheet" href="./Styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Registro Nacional de Personas</h1>
+            <button id="theme-toggle" class="btn-theme">🌙 Modo Oscuro</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="form-section card">
+            <h2>Ficha de Registro</h2>
+            <form id="person-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">Nombre:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Apellido:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Edad:</label>
+                        <input type="number" id="age" name="age" min="0" max="120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Fecha de Nacimiento:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Sexo:</label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="sex" value="Masculino" required> M</label>
+                            <label><input type="radio" name="sex" value="Femenino"> F</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">Documento (DNI):</label>
+                        <input type="text" id="dni" name="dni" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="civilStatus">Estado Civil:</label>
+                        <select id="civilStatus" name="civilStatus" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Soltero/a">Soltero/a</option>
+                            <option value="Casado/a">Casado/a</option>
+                            <option value="Divorciado/a">Divorciado/a</option>
+                            <option value="Viudo/a">Viudo/a</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nacionalidad:</label>
+                        <input type="text" id="nationality" name="nationality" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Ej: 11-1234-5678" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Tiene hijos?</label>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="hasChildren" value="yes"> Sí</label>
+                            <label><input type="radio" name="hasChildren" value="no" checked> No</label>
+                        </div>
+                    </div>
+                    <div id="children-count-group" class="form-group hidden">
+                        <label for="childrenCount">Cantidad de hijos:</label>
+                        <input type="number" id="childrenCount" name="childrenCount" min="1">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Guardar Registro</button>
+            </form>
+        </section>
+
+        <section class="list-section card">
+            <h2>Registros Guardados (LocalStorage)</h2>
+            <div id="registry-list" class="registry-list">
+                <!-- Se cargará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container"></div>
+
+    <script type="module" src="./Scripts/app.js"></script>
+</body>
+</html>

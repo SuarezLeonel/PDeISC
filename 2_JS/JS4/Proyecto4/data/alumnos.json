@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nombre": "Juan Pérez", "email": "juan.perez@ejemplo.com", "carrera": "Ingeniería en Sistemas", "edad": 22 },
+  { "id": 2, "nombre": "María Gómez", "email": "maria.gomez@ejemplo.com", "carrera": "Ingeniería en Electrónica", "edad": 21 },
+  { "id": 3, "nombre": "Carlos López", "email": "carlos.lopez@ejemplo.com", "carrera": "Ingeniería Civil", "edad": 23 },
+  { "id": 4, "nombre": "Ana Martínez", "email": "ana.martinez@ejemplo.com", "carrera": "Ingeniería Química", "edad": 20 },
+  { "id": 5, "nombre": "Luis Rodríguez", "email": "luis.rodriguez@ejemplo.com", "carrera": "Ingeniería Industrial", "edad": 24 }
+]

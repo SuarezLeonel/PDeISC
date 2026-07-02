@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cliente - Lista de Alumnos</title>
+  <link rel="stylesheet" href="../Styles/global.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <header class="header">
+      <h1>Panel de Alumnos</h1>
+      <button id="themeToggle" class="theme-toggle">🌙 Modo Oscuro</button>
+    </header>
+
+    <main class="main-content">
+      <div class="stats-container">
+        <div class="stat-card">
+          <div id="totalAlumnos" class="stat-number">0</div>
+          <div class="stat-label">Total Alumnos</div>
+        </div>
+      </div>
+
+      <section class="alumnos-section">
+        <div class="section-header">
+          <h2>Listado Completo</h2>
+          <button id="refreshBtn" class="refresh-btn">Actualizar</button>
+        </div>
+        <div class="alumnos-table-container">
+          <table class="alumnos-table">
+            <thead>
+              <tr>
+                <th>Alumno</th>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+              </tr>
+            </thead>
+            <tbody id="alumnosTableBody">
+              <tr>
+                <td colspan="5" class="loading">Cargando datos...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../Scripts/main.js" type="module"></script>
+</body>
+</html>

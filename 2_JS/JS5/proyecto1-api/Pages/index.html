@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Alumnos - API</title>
+  <link rel="stylesheet" href="../Styles/global.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <header class="header">
+      <h1>Registro de Alumnos</h1>
+      <button id="themeToggle" class="theme-toggle">🌙 Modo Oscuro</button>
+    </header>
+
+    <main class="main-content">
+      <div class="content-grid">
+        <section class="form-section">
+          <div class="card">
+            <h2>Nuevo Alumno</h2>
+            <form id="alumnoForm">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" class="form-control" required placeholder="Ingrese el nombre">
+              </div>
+              <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" class="form-control" required placeholder="Ingrese el apellido">
+              </div>
+              <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" class="form-control" required placeholder="Ingrese la edad" min="1">
+              </div>
+              <button type="submit" class="btn btn-primary">Registrar Alumno</button>
+            </form>
+            <div id="alertSuccess" class="alert alert-success"></div>
+            <div id="alertDanger" class="alert alert-danger"></div>
+          </div>
+        </section>
+
+        <section class="alumnos-section">
+          <h2>Lista de Alumnos</h2>
+          <div id="alumnosGrid" class="alumnos-grid"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../Scripts/main.js" type="module"></script>
+</body>
+</html>

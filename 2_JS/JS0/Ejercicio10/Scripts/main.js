@@ -1,4 +1,9 @@
 import { multiplicarPorTres, convertirAMayusculas, aplicarIVA } from '../Modules/arrayMethods.js';
+import { initTheme, toggleTheme } from '../Modules/theme.js';
+
+// Inicializar tema
+initTheme();
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // 1. Multiplicar
 const nums = [1, 2, 3, 4, 10];

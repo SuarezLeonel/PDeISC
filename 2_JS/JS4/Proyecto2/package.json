@@ -1,0 +1,16 @@
+{
+  "name": "js4-proyecto2",
+  "version": "1.0.0",
+  "description": "Proyecto 2: Formulario con POST a API usando Fetch y Axios",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["api", "fetch", "axios", "javascript", "formulario"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.1"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "js4-proyecto1",
+  "version": "1.0.0",
+  "description": "Proyecto 1: Obtener datos de API pública con Fetch y Axios",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["api", "fetch", "axios", "javascript"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.1"
+  }
+}

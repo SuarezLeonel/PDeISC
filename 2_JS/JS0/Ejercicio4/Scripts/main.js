@@ -1,4 +1,9 @@
 import { eliminarPrimerEntero, eliminarPrimerMensaje, atenderCliente } from '../Modules/arrayMethods.js';
+import { initTheme, toggleTheme } from '../Modules/theme.js';
+
+// Inicializar tema
+initTheme();
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // 1. Enteros
 let enteros = [1, 2, 3, 4, 5];

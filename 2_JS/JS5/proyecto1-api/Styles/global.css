@@ -1,0 +1,439 @@
+/**
+ * @file global.css
+ * @description Estilos globales con soporte para tema claro/oscuro y diseño responsive
+ */
+
+/**
+ * Variables CSS para el tema claro
+ */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border-color: #dee2e6;
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * Variables CSS para el tema oscuro (se activa con la clase .dark-mode)
+ */
+body.dark-mode {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-primary: #eaeaea;
+  --text-secondary: #a0a0a0;
+  --border-color: #2d3a5a;
+  --primary-color: #4a9eff;
+  --primary-hover: #3a8eef;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --card-bg: #16213e;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/**
+ * Reset básico de estilos
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * Estilos generales del body
+ */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/**
+ * Contenedor de ancho completo
+ */
+.container-fluid {
+  width: 100%;
+  padding: 0;
+}
+
+/**
+ * Estilos del encabezado
+ */
+.header {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/**
+ * Botón de cambio de tema
+ */
+.theme-toggle {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-hover);
+}
+
+/**
+ * Contenido principal
+ */
+.main-content {
+  padding: 3rem 2rem;
+}
+
+/**
+ * Grid principal para organizar las dos secciones
+ */
+.content-grid {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+/**
+ * Sección del formulario
+ */
+.form-section {
+  width: 100%;
+}
+
+/**
+ * Tarjeta contenedora
+ */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.card h2 {
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+/**
+ * Grupos de formulario
+ */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/**
+ * Campos de formulario
+ */
+.form-control {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/**
+ * Botones
+ */
+.btn {
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/**
+ * Alertas de notificación
+ */
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  display: none;
+}
+
+.alert-success {
+  background-color: rgba(25, 135, 84, 0.15);
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+}
+
+/**
+ * Sección de lista de alumnos
+ */
+.alumnos-section {
+  width: 100%;
+}
+
+.alumnos-section h2 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+/**
+ * Grid de tarjetas de alumnos
+ */
+.alumnos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/**
+ * Tarjeta individual de alumno
+ */
+.alumno-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+/**
+ * Avatar circular del alumno
+ */
+.alumno-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.alumno-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.alumno-info p {
+  color: var(--text-secondary);
+  margin: 0.25rem 0;
+}
+
+/**
+ * Media Query para dispositivos grandes (máximo 1200px)
+ */
+@media (max-width: 1200px) {
+  .content-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+  }
+
+  .alumnos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/**
+ * Media Query para dispositivos medianos (máximo 1024px)
+ */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .alumnos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+}
+
+/**
+ * Media Query para tablets (máximo 900px)
+ */
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .header {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/**
+ * Media Query para dispositivos móviles (máximo 768px)
+ */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .theme-toggle {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .main-content {
+    padding: 2rem 1rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+  }
+
+  .alumnos-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .alumnos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .alumno-avatar {
+    width: 56px;
+    height: 56px;
+    font-size: 1.35rem;
+  }
+}
+
+/**
+ * Media Query para dispositivos móviles pequeños (máximo 480px)
+ */
+@media (max-width: 480px) {
+  .header {
+    padding: 1.25rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.35rem;
+  }
+
+  .theme-toggle {
+    padding: 0.6rem 1.15rem;
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card h2 {
+    font-size: 1.35rem;
+  }
+
+  .alumnos-section h2 {
+    font-size: 1.35rem;
+  }
+
+  .alumnos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .alumno-avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+
+  .alumno-info h3 {
+    font-size: 1.15rem;
+  }
+}
