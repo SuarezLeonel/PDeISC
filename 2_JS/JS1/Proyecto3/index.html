@@ -19,6 +19,7 @@
             <h2>Ficha de Registro</h2>
             <form id="person-form">
                 <div class="form-grid">
+<<<<<<< HEAD
                     <div class="form-group">
                         <label for="firstName">Nombre:</label>
                         <input type="text" id="firstName" name="firstName" required>
@@ -36,17 +37,51 @@
                         <input type="date" id="dob" name="dob" required>
                     </div>
                     <div class="form-group">
+=======
+                    <div class="form-group" data-field="firstName">
+                        <label for="firstName">Nombre:</label>
+                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" maxlength="50" required>
+                        <span class="field-error" id="error-firstName" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="lastName">
+                        <label for="lastName">Apellido:</label>
+                        <input type="text" id="lastName" name="lastName" autocomplete="family-name" maxlength="50" required>
+                        <span class="field-error" id="error-lastName" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="dob">
+                        <label for="dob">Fecha de Nacimiento:</label>
+                        <input type="date" id="dob" name="dob" required>
+                        <span class="field-error" id="error-dob" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="age">
+                        <label for="age">Edad (calculada automáticamente):</label>
+                        <input type="text" id="age" name="age" readonly placeholder="Completá la fecha de nacimiento" tabindex="-1" aria-readonly="true">
+                        <span class="field-hint">Se obtiene a partir de la fecha de nacimiento.</span>
+                    </div>
+                    <div class="form-group" data-field="sex">
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
                         <label>Sexo:</label>
                         <div class="radio-inline">
                             <label><input type="radio" name="sex" value="Masculino" required> M</label>
                             <label><input type="radio" name="sex" value="Femenino"> F</label>
                         </div>
+<<<<<<< HEAD
                     </div>
                     <div class="form-group">
                         <label for="dni">Documento (DNI):</label>
                         <input type="text" id="dni" name="dni" required>
                     </div>
                     <div class="form-group">
+=======
+                        <span class="field-error" id="error-sex" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="dni">
+                        <label for="dni">Documento (DNI):</label>
+                        <input type="text" id="dni" name="dni" inputmode="numeric" maxlength="10" placeholder="12345678" required>
+                        <span class="field-error" id="error-dni" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="civilStatus">
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
                         <label for="civilStatus">Estado Civil:</label>
                         <select id="civilStatus" name="civilStatus" required>
                             <option value="">Seleccione...</option>
@@ -55,6 +90,7 @@
                             <option value="Divorciado/a">Divorciado/a</option>
                             <option value="Viudo/a">Viudo/a</option>
                         </select>
+<<<<<<< HEAD
                     </div>
                     <div class="form-group">
                         <label for="nationality">Nacionalidad:</label>
@@ -69,15 +105,46 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
+=======
+                        <span class="field-error" id="error-civilStatus" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="nationality">
+                        <label for="nationality">Nacionalidad:</label>
+                        <select id="nationality" name="nationality" required>
+                            <option value="">Seleccione un país...</option>
+                        </select>
+                        <span class="field-error" id="error-nationality" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="phone">
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Ej: 11-1234-5678" maxlength="20" required>
+                        <span class="field-error" id="error-phone" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="email">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" autocomplete="email" maxlength="100" required>
+                        <span class="field-error" id="error-email" role="alert"></span>
+                    </div>
+                    <div class="form-group" data-field="hasChildren">
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
                         <label>¿Tiene hijos?</label>
                         <div class="radio-inline">
                             <label><input type="radio" name="hasChildren" value="yes"> Sí</label>
                             <label><input type="radio" name="hasChildren" value="no" checked> No</label>
                         </div>
+<<<<<<< HEAD
                     </div>
                     <div id="children-count-group" class="form-group hidden">
                         <label for="childrenCount">Cantidad de hijos:</label>
                         <input type="number" id="childrenCount" name="childrenCount" min="1">
+=======
+                        <span class="field-error" id="error-hasChildren" role="alert"></span>
+                    </div>
+                    <div id="children-count-group" class="form-group hidden" data-field="childrenCount">
+                        <label for="childrenCount">Cantidad de hijos:</label>
+                        <input type="number" id="childrenCount" name="childrenCount" min="1" max="25">
+                        <span class="field-error" id="error-childrenCount" role="alert"></span>
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
                     </div>
                 </div>
                 <button type="submit" class="btn-primary">Guardar Registro</button>
@@ -96,4 +163,8 @@
 
     <script type="module" src="./Scripts/app.js"></script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405

@@ -5,6 +5,20 @@ import { initTheme, toggleTheme } from '../Modules/theme.js';
 initTheme();
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
+const esTextoValido = (valor) =>
+    /[A-Za-zÁÉÍÓÚáéíóúÑñ0-9]/.test(valor) && valor.trim().length >= 2;
+
+const mostrarErrorInput = (input, mensaje) => {
+    input.classList.add('is-invalid');
+    input.setCustomValidity(mensaje);
+    input.reportValidity();
+};
+
+const limpiarErrorInput = (input) => {
+    input.classList.remove('is-invalid');
+    input.setCustomValidity('');
+};
+
 // 1. Letras
 const letras = ["A", "B", "C", "D", "E"];
 const resLetters = document.getElementById('res-letters');
@@ -45,10 +59,43 @@ const btnText = document.getElementById('btn-text');
 // Evento para revertir un string ingresado por el usuario
 btnText.addEventListener('click', () => {
     const val = textInput.value;
-    if (val) {
-        const result = revertirTexto(val);
-        resText.innerText = result;
-        btnText.disabled = true;
-        textInput.disabled = true;
+    if (!val.trim()) {
+        mostrarErrorInput(textInput, 'Ingresa un texto para invertir.');
+        return;
+    }
+
+    if (!esTextoValido(val)) {
+        mostrarErrorInput(textInput, 'Ingresa un texto valido de al menos 2 caracteres.');
+        return;
+    }
+
+    limpiarErrorInput(textInput);
+    const result = revertirTexto(val);
+    resText.innerText = result;
+    btnText.disabled = true;
+    textInput.disabled = true;
+});
+
+textInput.addEventListener('input', () => limpiarErrorInput(textInput));
+
+// --- Tema Oscuro/Claro ---
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+
+if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀️ Tema Claro';
+}
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙 Tema Oscuro';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️ Tema Claro';
     }
 });

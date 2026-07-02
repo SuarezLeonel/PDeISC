@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD
   "name": "proyecto2-inventory",
   "version": "1.0.0",
   "type": "module",
   "description": "Gestión de inventario con métodos de array",
+=======
+  "name": "proyecto2-catalogo-deportivo",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Catálogo de artículos deportivos con métodos de array (push, unshift, spread, concat)",
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
   "main": "Server.js",
   "scripts": {
     "start": "node Server.js"

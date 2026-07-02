@@ -5,6 +5,34 @@ import { initTheme, toggleTheme } from '../Modules/theme.js';
 initTheme();
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
+const normalizarTexto = (valor) =>
+    valor
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+
+const frutasValidas = new Set([
+    'anana', 'arandano', 'banana', 'cereza', 'ciruela', 'coco', 'durazno',
+    'frambuesa', 'frutilla', 'granada', 'kiwi', 'limon', 'mandarina',
+    'mango', 'manzana', 'melon', 'naranja', 'palta', 'papaya', 'pera',
+    'pina', 'pomelo', 'sandia', 'uva'
+]);
+
+const esNombreValido = (valor) =>
+    /^[A-Za-zÁÉÍÓÚáéíóúÑñ]+(?:[ '\-][A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$/.test(valor.trim());
+
+const mostrarErrorInput = (input, mensaje) => {
+    input.classList.add('is-invalid');
+    input.setCustomValidity(mensaje);
+    input.reportValidity();
+};
+
+const limpiarErrorInput = (input) => {
+    input.classList.remove('is-invalid');
+    input.setCustomValidity('');
+};
+
 // --- Parte 1: Frutas ---
 let frutas = [];
 let countFrutas = 0;
@@ -19,19 +47,28 @@ frutasDisplay.innerText = `Array: ${JSON.stringify(frutas)}`;
 // Evento para agregar fruta desde el input
 btnFrutas.addEventListener('click', () => {
     const nombre = frutaInput.value.trim();
-    if (nombre) {
-        frutas = agregarFruta(frutas, nombre);
-        countFrutas++;
-        frutasDisplay.innerText = `Array: ${JSON.stringify(frutas)}`;
-        frutasCountText.innerText = `Frutas agregadas: ${countFrutas}/3`;
-        frutaInput.value = '';
-        
-        // Límite de 3 frutas
-        if (countFrutas >= 3) {
-            btnFrutas.disabled = true;
-            btnFrutas.innerText = 'Límite alcanzado';
-            frutaInput.disabled = true;
-        }
+    if (!nombre) {
+        mostrarErrorInput(frutaInput, 'Ingresa el nombre de una fruta.');
+        return;
+    }
+
+    if (!frutasValidas.has(normalizarTexto(nombre))) {
+        mostrarErrorInput(frutaInput, 'Ingresa una fruta valida, por ejemplo: manzana, pera o banana.');
+        return;
+    }
+
+    limpiarErrorInput(frutaInput);
+    frutas = agregarFruta(frutas, nombre);
+    countFrutas++;
+    frutasDisplay.innerText = `Array: ${JSON.stringify(frutas)}`;
+    frutasCountText.innerText = `Frutas agregadas: ${countFrutas}/3`;
+    frutaInput.value = '';
+    
+    // Límite de 3 frutas
+    if (countFrutas >= 3) {
+        btnFrutas.disabled = true;
+        btnFrutas.innerText = 'Límite alcanzado';
+        frutaInput.disabled = true;
     }
 });
 
@@ -49,19 +86,28 @@ amigosDisplay.innerText = `Amigos: ${JSON.stringify(amigos)}`;
 // Evento para agregar amigos desde el input
 btnAmigos.addEventListener('click', () => {
     const nombre = amigoInput.value.trim();
-    if (nombre) {
-        amigos.push(nombre);
-        countAmigos++;
-        amigosDisplay.innerText = `Amigos: ${JSON.stringify(amigos)}`;
-        amigosCountText.innerText = `Amigos agregados: ${countAmigos}/3`;
-        amigoInput.value = '';
-        
-        // Límite de 3 amigos adicionales
-        if (countAmigos >= 3) {
-            btnAmigos.disabled = true;
-            btnAmigos.innerText = 'Límite alcanzado';
-            amigoInput.disabled = true;
-        }
+    if (!nombre) {
+        mostrarErrorInput(amigoInput, 'Ingresa el nombre de un amigo.');
+        return;
+    }
+
+    if (!esNombreValido(nombre)) {
+        mostrarErrorInput(amigoInput, 'Ingresa un nombre valido, solo letras y espacios.');
+        return;
+    }
+
+    limpiarErrorInput(amigoInput);
+    amigos.push(nombre);
+    countAmigos++;
+    amigosDisplay.innerText = `Amigos: ${JSON.stringify(amigos)}`;
+    amigosCountText.innerText = `Amigos agregados: ${countAmigos}/3`;
+    amigoInput.value = '';
+    
+    // Límite de 3 amigos adicionales
+    if (countAmigos >= 3) {
+        btnAmigos.disabled = true;
+        btnAmigos.innerText = 'Límite alcanzado';
+        amigoInput.disabled = true;
     }
 });
 
@@ -77,8 +123,13 @@ numsDisplay.innerText = `Números: ${JSON.stringify(numeros)}`;
 
 // Evento para agregar números bajo condición
 btnNums.addEventListener('click', () => {
-    const val = parseInt(numInput.value);
-    if (isNaN(val)) return;
+    const val = Number(numInput.value);
+    if (!Number.isInteger(val)) {
+        mostrarErrorInput(numInput, 'Ingresa un numero entero valido.');
+        return;
+    }
+
+    limpiarErrorInput(numInput);
 
     const result = agregarSiEsMayor(numeros, val);
     numeros = result.newArr;
@@ -95,10 +146,36 @@ btnNums.addEventListener('click', () => {
     numInput.value = '';
 });
 
+frutaInput.addEventListener('input', () => limpiarErrorInput(frutaInput));
+amigoInput.addEventListener('input', () => limpiarErrorInput(amigoInput));
+numInput.addEventListener('input', () => limpiarErrorInput(numInput));
+
 // --- Toggle Global ---
 // Muestra u oculta las tarjetas del ejercicio
 const btnToggle = document.getElementById('btn-toggle');
 const cards = document.querySelectorAll('.card');
 btnToggle.addEventListener('click', () => {
     cards.forEach(card => card.classList.toggle('d-none'));
+});
+
+// --- Tema Oscuro/Claro ---
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+
+if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀️ Tema Claro';
+}
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙 Tema Oscuro';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️ Tema Claro';
+    }
 });

@@ -19,6 +19,60 @@ export const initTheme = () => {
     };
 };
 
+<<<<<<< HEAD
+=======
+const COUNTRIES = [
+    'Afganistan', 'Albania', 'Alemania', 'Andorra', 'Angola', 'Antigua y Barbuda',
+    'Arabia Saudita', 'Argelia', 'Argentina', 'Armenia', 'Australia', 'Austria',
+    'Azerbaiyan', 'Bahamas', 'Banglades', 'Barbados', 'Barein', 'Belgica',
+    'Belice', 'Benin', 'Bielorrusia', 'Birmania', 'Bolivia',
+    'Bosnia y Herzegovina', 'Botsuana', 'Brasil', 'Brunei', 'Bulgaria',
+    'Burkina Faso', 'Burundi', 'Butan', 'Cabo Verde', 'Camboya', 'Camerun',
+    'Canada', 'Catar', 'Chad', 'Chile', 'China', 'Chipre', 'Colombia',
+    'Comoras', 'Corea del Norte', 'Corea del Sur', 'Costa de Marfil',
+    'Costa Rica', 'Croacia', 'Cuba', 'Dinamarca', 'Dominica', 'Ecuador',
+    'Egipto', 'El Salvador', 'Emiratos Arabes Unidos', 'Eritrea', 'Eslovaquia',
+    'Eslovenia', 'Espana', 'Estados Unidos', 'Estonia', 'Esuatini', 'Etiopia',
+    'Filipinas', 'Finlandia', 'Fiyi', 'Francia', 'Gabon', 'Gambia', 'Georgia',
+    'Ghana', 'Granada', 'Grecia', 'Guatemala', 'Guinea', 'Guinea-Bisau',
+    'Guinea Ecuatorial', 'Guyana', 'Haiti', 'Honduras', 'Hungria', 'India',
+    'Indonesia', 'Irak', 'Iran', 'Irlanda', 'Islandia', 'Islas Marshall',
+    'Islas Salomon', 'Israel', 'Italia', 'Jamaica', 'Japon', 'Jordania',
+    'Kazajistan', 'Kenia', 'Kirguistan', 'Kiribati', 'Kuwait', 'Laos',
+    'Lesoto', 'Letonia', 'Libano', 'Liberia', 'Libia', 'Liechtenstein',
+    'Lituania', 'Luxemburgo', 'Madagascar', 'Malasia', 'Malaui', 'Maldivas',
+    'Mali', 'Malta', 'Marruecos', 'Mauricio', 'Mauritania', 'Mexico',
+    'Micronesia', 'Moldavia', 'Monaco', 'Mongolia', 'Montenegro', 'Mozambique',
+    'Namibia', 'Nauru', 'Nepal', 'Nicaragua', 'Niger', 'Nigeria', 'Noruega',
+    'Nueva Zelanda', 'Oman', 'Paises Bajos', 'Pakistan', 'Palaos', 'Panama',
+    'Papua Nueva Guinea', 'Paraguay', 'Peru', 'Polonia', 'Portugal',
+    'Reino Unido', 'Republica Centroafricana', 'Republica Checa',
+    'Republica del Congo', 'Republica Democratica del Congo',
+    'Republica Dominicana', 'Ruanda', 'Rumania', 'Rusia', 'Samoa',
+    'San Cristobal y Nieves', 'San Marino', 'San Vicente y las Granadinas',
+    'Santa Lucia', 'Santo Tome y Principe', 'Senegal', 'Serbia', 'Seychelles',
+    'Sierra Leona', 'Singapur', 'Siria', 'Somalia', 'Sri Lanka', 'Sudafrica',
+    'Sudan', 'Sudan del Sur', 'Suecia', 'Suiza', 'Surinam', 'Tailandia',
+    'Tanzania', 'Tayikistan', 'Timor Oriental', 'Togo', 'Tonga',
+    'Trinidad y Tobago', 'Tunez', 'Turkmenistan', 'Turquia', 'Tuvalu',
+    'Ucrania', 'Uganda', 'Uruguay', 'Uzbekistan', 'Vanuatu',
+    'Ciudad del Vaticano', 'Venezuela', 'Vietnam', 'Yemen', 'Yibuti',
+    'Zambia', 'Zimbabue'
+];
+
+export const populateNationalitySelect = () => {
+    const select = document.getElementById('nationality');
+    if (!select) return;
+
+    COUNTRIES.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        select.appendChild(option);
+    });
+};
+
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
 /**
  * Muestra/Oculta el campo de hijos dinámicamente
  */
@@ -50,6 +104,7 @@ export const renderPeople = (people) => {
     people.forEach(p => {
         const div = document.createElement('div');
         div.className = 'person-item';
+<<<<<<< HEAD
         div.innerHTML = `
             <h3 class="person-name">${p.firstName.toUpperCase()} ${p.lastName.toUpperCase()}</h3>
             <div class="person-details-grid">
@@ -90,12 +145,30 @@ export const renderPeople = (people) => {
                     <span class="detail-value">${p.hasChildren === 'yes' ? `${p.childrenCount} ${p.childrenCount === '1' ? 'hijo' : 'hijos'}` : 'No tiene'}</span>
                 </div>
             </div>
+=======
+        const childrenText = p.hasChildren === 'yes'
+            ? `${p.childrenCount || 0} hijo(s)`
+            : 'No tiene';
+
+        div.innerHTML = `
+            <h3>${p.firstName.toUpperCase()} ${p.lastName.toUpperCase()}</h3>
+            <p><strong>Edad:</strong> ${p.age} años</p>
+            <p><strong>Fecha de Nacimiento:</strong> ${p.dob}</p>
+            <p><strong>Sexo:</strong> ${p.sex}</p>
+            <p><strong>Estado Civil:</strong> ${p.civilStatus}</p>
+            <p><strong>Nacionalidad:</strong> ${p.nationality}</p>
+            <p><strong>Telefono:</strong> ${p.phone}</p>
+            <p><strong>Email:</strong> ${p.email}</p>
+            <p><strong>DNI:</strong> ${p.dni}</p>
+            <p><strong>Hijos:</strong> ${childrenText}</p>
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
         `;
         list.prepend(div);
     });
 };
 
 /**
+<<<<<<< HEAD
  * Formatea una fecha para mostrarla de forma legible
  */
 const formatDate = (dateString) => {
@@ -109,6 +182,8 @@ const formatDate = (dateString) => {
 };
 
 /**
+=======
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
  * Muestra alertas dinámicas (Toast)
  */
 export const showAlert = (msg, type = 'success') => {
@@ -126,4 +201,38 @@ export const showAlert = (msg, type = 'success') => {
 export const getPersonFormData = (form) => {
     const fd = new FormData(form);
     return Object.fromEntries(fd.entries());
+<<<<<<< HEAD
 };
+=======
+};
+
+const FIELD_IDS = [
+    'firstName', 'lastName', 'age', 'dob', 'sex', 'dni',
+    'civilStatus', 'nationality', 'phone', 'email', 'hasChildren', 'childrenCount'
+];
+
+export const clearFieldErrors = () => {
+    FIELD_IDS.forEach((field) => {
+        const errorEl = document.getElementById(`error-${field}`);
+        const group = document.querySelector(`[data-field="${field}"]`);
+        if (errorEl) errorEl.textContent = '';
+        if (group) group.classList.remove('has-error');
+    });
+};
+
+export const showFieldErrors = (fieldErrors = {}) => {
+    clearFieldErrors();
+
+    Object.entries(fieldErrors).forEach(([field, message]) => {
+        const errorEl = document.getElementById(`error-${field}`);
+        const group = document.querySelector(`[data-field="${field}"]`);
+        if (errorEl) errorEl.textContent = message;
+        if (group) group.classList.add('has-error');
+    });
+
+    const firstInvalid = document.querySelector('.form-group.has-error');
+    if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+};
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405

@@ -5,6 +5,17 @@ import { initTheme, toggleTheme } from '../Modules/theme.js';
 initTheme();
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
+const mostrarErrorInput = (input, mensaje) => {
+    input.classList.add('is-invalid');
+    input.setCustomValidity(mensaje);
+    input.reportValidity();
+};
+
+const limpiarErrorInput = (input) => {
+    input.classList.remove('is-invalid');
+    input.setCustomValidity('');
+};
+
 // 1. Admin
 const roles = ["user", "editor", "guest"]; // No tiene admin inicialmente
 const resAdmin = document.getElementById('res-admin');
@@ -48,8 +59,13 @@ if (numsDisplay) numsDisplay.innerText = `Números: ${JSON.stringify(numeros)}`;
 
 // Evento para agregar un número solo si no está en el array (evitar duplicados)
 document.getElementById('btn-sumar').addEventListener('click', () => {
-    const val = parseInt(numInput.value);
-    if (isNaN(val)) return;
+    const val = Number(numInput.value);
+    if (!Number.isInteger(val)) {
+        mostrarErrorInput(numInput, 'Ingresa un numero entero valido.');
+        return;
+    }
+
+    limpiarErrorInput(numInput);
 
     const result = agregarSiNoExiste(numeros, val);
     numeros = result.newArr;
@@ -64,4 +80,28 @@ document.getElementById('btn-sumar').addEventListener('click', () => {
         resSumar.className = 'mt-2 fw-bold text-danger';
     }
     numInput.value = '';
+});
+
+numInput.addEventListener('input', () => limpiarErrorInput(numInput));
+
+// --- Tema Oscuro/Claro ---
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+
+if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀️ Tema Claro';
+}
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙 Tema Oscuro';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️ Tema Claro';
+    }
 });

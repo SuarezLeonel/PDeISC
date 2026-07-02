@@ -17,6 +17,7 @@ if (numsDisplay) numsDisplay.innerText = `Números: ${JSON.stringify(nums)}`;
 document.getElementById('btn-nums').addEventListener('click', () => {
     const filtered = filtrarMayoresA10(nums);
     resNums.innerText = `Resultado: ${JSON.stringify(filtered)}`;
+    resNums.className = 'mt-2 fw-bold result-success';
     document.getElementById('btn-nums').disabled = true;
 });
 
@@ -32,6 +33,7 @@ if (wordsDisplay) wordsDisplay.innerText = `Palabras: ${JSON.stringify(words)}`;
 document.getElementById('btn-words').addEventListener('click', () => {
     const filtered = filtrarPalabrasLargas(words);
     resWords.innerText = `Resultado: ${JSON.stringify(filtered)}`;
+    resWords.className = 'mt-2 fw-bold result-success';
     document.getElementById('btn-words').disabled = true;
 });
 
@@ -52,5 +54,28 @@ if (usersDisplay) usersDisplay.innerText = `Usuarios: ${JSON.stringify(usuarios)
 document.getElementById('btn-users').addEventListener('click', () => {
     const filtered = filtrarUsuariosActivos(usuarios);
     resUsers.innerText = `Activos: ${JSON.stringify(filtered)}`;
+    resUsers.className = 'mt-2 fw-bold result-success';
     document.getElementById('btn-users').disabled = true;
+});
+
+// --- Tema Oscuro/Claro ---
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+
+if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀️ Tema Claro';
+}
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙 Tema Oscuro';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️ Tema Claro';
+    }
 });

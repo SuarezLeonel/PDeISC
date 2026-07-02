@@ -61,11 +61,15 @@ header {
 .header-content h1 {
     font-size: 1.2rem;
     margin-bottom: 0;
+<<<<<<< HEAD
     word-break: break-word;
+=======
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
 }
 
 .container {
     max-width: 1200px;
+<<<<<<< HEAD
     margin: 0.75rem auto;
     padding: 0 0.5rem;
     display: grid;
@@ -76,6 +80,43 @@ header {
 .card {
     background-color: var(--card-bg);
     padding: 1.5rem;
+=======
+    margin: 1rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) { /* Mobile L */
+    .card { padding: 1.5rem; }
+    .header-content h1 { font-size: 1.1rem; }
+}
+
+@media (max-width: 375px) { /* Mobile M */
+    .card { padding: 1.2rem; }
+    .header-content h1 { font-size: 1rem; }
+    .btn-theme { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+}
+
+@media (max-width: 320px) { /* Mobile S */
+    .card { padding: 1rem; }
+    .header-content { flex-direction: column; text-align: center; }
+    .header-content h1 { font-size: 0.9rem; }
+    .btn-primary { padding: 0.7rem; font-size: 0.9rem; }
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
     border-radius: 8px;
     box-shadow: var(--shadow);
 }
@@ -109,7 +150,10 @@ input, select {
     background-color: var(--card-bg);
     color: var(--text-primary);
     font-size: 1rem;
+<<<<<<< HEAD
     overflow-wrap: break-word;
+=======
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
 }
 
 input:focus, select:focus {
@@ -157,10 +201,17 @@ input:focus, select:focus {
     background-color: var(--bg-color);
 }
 
+<<<<<<< HEAD
 /* User Grid - Full Responsive (Mobile First) */
 .user-grid {
     display: grid;
     grid-template-columns: 1fr;
+=======
+/* User Grid */
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -171,7 +222,10 @@ input:focus, select:focus {
     border-radius: 8px;
     position: relative;
     animation: fadeIn 0.3s ease-out;
+<<<<<<< HEAD
     overflow-wrap: break-word;
+=======
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
 }
 
 @keyframes fadeIn {
@@ -182,7 +236,10 @@ input:focus, select:focus {
 .user-card h3 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
+<<<<<<< HEAD
     word-break: break-word;
+=======
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
 }
 
 .user-card p {
@@ -211,12 +268,20 @@ input:focus, select:focus {
     padding: 2rem;
 }
 
+<<<<<<< HEAD
 /* Toast - Responsive */
 #toast-container {
     position: fixed;
     bottom: 1rem;
     left: 1rem;
     right: 1rem;
+=======
+/* Toast */
+#toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
     z-index: 1000;
 }
 
@@ -227,7 +292,10 @@ input:focus, select:focus {
     margin-bottom: 0.5rem;
     box-shadow: var(--shadow);
     animation: slideIn 0.3s ease-out;
+<<<<<<< HEAD
     word-break: break-word;
+=======
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
 }
 
 @keyframes slideIn {
@@ -236,6 +304,7 @@ input:focus, select:focus {
 }
 
 .toast-success { background-color: var(--success-color); }
+<<<<<<< HEAD
 .toast-error { background-color: var(--error-color); }
 
 /* --- Responsive Breakpoints (Mobile First Approach) --- */
@@ -295,3 +364,6 @@ input:focus, select:focus {
     .card { padding: 1rem; }
     .btn-primary { padding: 0.7rem; font-size: 0.9rem; }
 }
+=======
+.toast-error { background-color: var(--error-color); }
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405

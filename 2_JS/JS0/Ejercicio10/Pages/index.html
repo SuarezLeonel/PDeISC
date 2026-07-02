@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
+<<<<<<< HEAD
             --bg-color: #f8fafc;
             --card-bg: #fff;
             --text-primary: #1e293b;
@@ -27,40 +28,124 @@
         .card { border-radius: 1rem; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; background-color: var(--card-bg); }
         .display-area { background: var(--card-bg); padding: 1.2rem; border-radius: 0.8rem; border: 1px solid var(--border-color); font-family: monospace; color: var(--text-secondary); }
         .section-title { font-weight: 700; color: var(--text-primary); border-left: 4px solid var(--text-secondary); padding-left: 0.8rem; }
+=======
+            --bg-color: #f0f2f5;
+            --text-color: #1a202c;
+            --card-bg: #ffffff;
+            --card-shadow: 0 1rem 3rem rgba(0,0,0,0.1);
+            --display-bg: #ffffff;
+            --display-border: #e0e4e9;
+            --display-text: #1a73e8;
+            --input-bg: #ffffff;
+            --input-border: #dee2e6;
+            --input-text: #212529;
+            --input-placeholder: #6c757d;
+        }
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --card-shadow: 0 1rem 3rem rgba(0,0,0,0.3);
+            --display-bg: #0f172a;
+            --display-border: #334155;
+            --display-text: #60a5fa;
+            --input-bg: #0f172a;
+            --input-border: #475569;
+            --input-text: #f1f5f9;
+            --input-placeholder: #94a3b8;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: all 0.3s ease; }
+        .card { border-radius: 1.5rem; border: none; box-shadow: var(--card-shadow); margin-bottom: 2rem; background-color: var(--card-bg); transition: all 0.3s ease; }
+        .display-area { background: var(--display-bg); padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--display-border); font-family: 'JetBrains Mono', monospace; min-height: 60px; color: var(--display-text); transition: all 0.3s ease; }
+        .section-title { font-weight: 800; color: var(--text-color); border-left: 5px solid #1a73e8; padding-left: 1rem; margin-bottom: 1.5rem; }
+        .theme-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+        .form-control { 
+            background-color: var(--input-bg); 
+            border-color: var(--input-border); 
+            color: var(--input-text);
+            transition: all 0.3s ease;
+        }
+        .form-control::placeholder { 
+            color: var(--input-placeholder); 
+        }
+        .form-control:focus {
+            background-color: var(--input-bg);
+            border-color: #1a73e8;
+            color: var(--input-text);
+            box-shadow: 0 0 0 0.25rem rgba(26, 115, 232, 0.25);
+        }
+        .small { 
+            color: var(--input-placeholder);
+        }
+        @media (max-width: 779.98px) {
+            .input-group {
+                flex-direction: column !important;
+                align-items: stretch;
+            }
+            .input-group .form-control,
+            .input-group .btn {
+                width: 100%;
+                margin: 0 !important;
+            }
+            .input-group .form-control {
+                margin-bottom: 0.75rem !important;
+            }
+            .card .row.g-2 > div {
+                width: 100%;
+                flex: 0 0 100%;
+            }
+            .card .row.g-2 > div + div {
+                margin-top: 0.5rem;
+            }
+        }
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
         @media (max-width: 576px) {
-            .display-area { padding: 0.8rem; font-size: 0.9rem; }
-            .card { padding: 1.2rem !important; }
+            .display-area { padding: 1rem; font-size: 0.9rem; }
+            .card { padding: 1.5rem !important; }
             h1 { font-size: 1.75rem; }
-            .btn { width: 100%; }
         }
     </style>
 </head>
 <body class="py-5">
+<<<<<<< HEAD
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
             <h1 class="text-center mb-0 fw-bold flex-grow-1">Transformación: .map()</h1>
             <button id="theme-toggle" class="btn btn-outline-secondary">🌙 Modo Oscuro</button>
         </div>
+=======
+    <button id="theme-toggle" class="theme-toggle btn btn-secondary fw-bold">🌙 Tema Oscuro</button>
+    <div class="container-fluid px-4">
+        <h1 class="text-center mb-5 fw-bold">Transformación: .map()</h1>
+>>>>>>> 694d37d6e454de3fb4e702b0ce0662cc9f14d405
 
-        <div class="card p-4">
-            <h5 class="section-title">1. Multiplicar por 3</h5>
-            <div id="nums-display" class="display-area mb-3">Números: [1, 2, 3, 4]</div>
-            <button id="btn-nums" class="btn btn-primary" style="background-color: #7c3aed; border: none;">Ejecutar x3</button>
-            <div id="res-nums" class="mt-2 fw-bold text-success"></div>
-        </div>
+        <div class="row g-4 px-2">
+            <div class="col-12 col-md-4">
+                <div class="card p-4 h-100">
+                    <h5 class="section-title">1. Multiplicar por 3</h5>
+                    <div id="nums-display" class="display-area mb-3">Números: [1, 2, 3, 4]</div>
+                    <button id="btn-nums" class="btn btn-primary w-100" style="background-color: #7c3aed; border: none;">Ejecutar x3</button>
+                    <div id="res-nums" class="mt-2 fw-bold text-success"></div>
+                </div>
+            </div>
 
-        <div class="card p-4">
-            <h5 class="section-title">2. Nombres a Mayúsculas</h5>
-            <div id="names-display" class="display-area mb-3">Nombres: ["ana", "luis", "pepe"]</div>
-            <button id="btn-names" class="btn btn-dark">Convertir</button>
-            <div id="res-names" class="mt-2 fw-bold text-success"></div>
-        </div>
+            <div class="col-12 col-md-4">
+                <div class="card p-4 h-100">
+                    <h5 class="section-title">2. Nombres a Mayúsculas</h5>
+                    <div id="names-display" class="display-area mb-3">Nombres: ["ana", "luis", "pepe"]</div>
+                    <button id="btn-names" class="btn btn-dark w-100">Convertir</button>
+                    <div id="res-names" class="mt-2 fw-bold text-success"></div>
+                </div>
+            </div>
 
-        <div class="card p-4">
-            <h5 class="section-title">3. Precios + IVA (21%)</h5>
-            <div id="prices-display" class="display-area mb-3">Precios: [100, 250, 500]</div>
-            <button id="btn-prices" class="btn btn-outline-primary">Calcular IVA</button>
-            <div id="res-prices" class="mt-2 fw-bold text-success"></div>
+            <div class="col-12 col-md-4">
+                <div class="card p-4 h-100">
+                    <h5 class="section-title">3. Precios + IVA (21%)</h5>
+                    <div id="prices-display" class="display-area mb-3">Precios: [100, 250, 500]</div>
+                    <button id="btn-prices" class="btn btn-outline-primary w-100">Calcular IVA</button>
+                    <div id="res-prices" class="mt-2 fw-bold text-success"></div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="module" src="../Scripts/main.js"></script>
