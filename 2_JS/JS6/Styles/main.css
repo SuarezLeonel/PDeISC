@@ -1,0 +1,383 @@
+/**
+ * Estilos principales del juego El Ahorcado.
+ * - Tema claro/oscuro con variables CSS
+ * - Diseño responsive para escritorio y móviles
+ * - Componentes reutilizables (botones, tarjetas, etc.)
+ */
+
+/* Variables de diseño: modo oscuro (predeterminado) */
+:root {
+  color-scheme: dark;
+  --bg: #09111f;
+  --bg-soft: rgba(17, 26, 43, 0.86);
+  --panel: rgba(14, 22, 36, 0.9);
+  --panel-border: rgba(148, 163, 184, 0.18);
+  --text: #e5eefb;
+  --muted: #93a4bc;
+  --primary: #5eead4;
+  --primary-strong: #22c55e;
+  --secondary: #7c3aed;
+  --danger: #fb7185;
+  --warning: #fbbf24;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Variables de diseño: modo claro */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f3f7ff;
+  --bg-soft: rgba(255, 255, 255, 0.92);
+  --panel: rgba(255, 255, 255, 0.95);
+  --panel-border: rgba(15, 23, 42, 0.12);
+  --text: #122033;
+  --muted: #4a607d;
+  --primary: #0f766e;
+  --primary-strong: #15803d;
+  --secondary: #6d28d9;
+  --danger: #e11d48;
+  --warning: #b45309;
+  --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+/* Reset y base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(94, 234, 212, 0.18), transparent 30%),
+    radial-gradient(circle at top right, rgba(124, 58, 237, 0.2), transparent 30%),
+    linear-gradient(180deg, var(--bg) 0%, #050914 100%);
+  color: var(--text);
+}
+
+/* Layout principal */
+.layout {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 40px;
+}
+
+/* Secciones y tarjetas con efecto glassmorphism */
+.hero,
+.panel {
+  background: var(--bg-soft);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.hero__content {
+  max-width: 760px;
+}
+
+.eyebrow,
+.panel__label {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.hero h1,
+.panel h2,
+.table-header h3 {
+  margin: 0;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+}
+
+.hero__text {
+  margin: 14px 0 0;
+  max-width: 62ch;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.hero__actions,
+.side-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(360px, 1fr);
+  gap: 24px;
+}
+
+.panel {
+  padding: 28px;
+}
+
+.panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.badge {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.14);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.stat-card,
+.word-box,
+.table-wrapper,
+.save-form,
+.used-letters {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 22px;
+}
+
+.stat-card {
+  padding: 16px;
+}
+
+.stat-card span {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.stat-card strong {
+  font-size: 1.5rem;
+}
+
+.hangman {
+  margin: 0;
+  padding: 20px;
+  min-height: 220px;
+  border-radius: 22px;
+  background: #050914;
+  color: #a7f3d0;
+  overflow: auto;
+}
+
+:root[data-theme="light"] .hangman {
+  background: #dfe9fb;
+  color: #14532d;
+}
+
+.word-box {
+  margin-top: 24px;
+  padding: 20px;
+}
+
+.word-box__label,
+.word-box__hint,
+.table-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.word-box__word {
+  margin: 14px 0;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.28em;
+  font-weight: 800;
+}
+
+.input-area {
+  margin-top: 24px;
+}
+
+.input-area label,
+.save-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.14);
+}
+
+.status {
+  margin: 12px 0 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.status[data-type="success"] {
+  color: var(--primary-strong);
+}
+
+.status[data-type="error"] {
+  color: var(--danger);
+}
+
+.used-letters,
+.save-form,
+.table-wrapper {
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.used-letters span {
+  color: var(--muted);
+}
+
+.used-letters p {
+  margin-bottom: 0;
+  letter-spacing: 0.12em;
+}
+
+.save-form {
+  display: grid;
+  gap: 12px;
+}
+
+.table-wrapper {
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard th,
+.leaderboard td {
+  padding: 14px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.leaderboard thead {
+  background: rgba(94, 234, 212, 0.08);
+}
+
+/* Botones y componentes interactivos */
+.button {
+  border: 0;
+  border-radius: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button--secondary {
+  background: linear-gradient(135deg, var(--secondary), #1d4ed8);
+}
+
+.button--ghost {
+  background: transparent;
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+}
+
+/* Media queries para diseño responsive */
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .layout {
+    width: min(100% - 20px, 1440px);
+    padding-top: 20px;
+  }
+
+  .hero,
+  .panel {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .input-row,
+  .hero__actions,
+  .side-actions,
+  .table-header {
+    flex-direction: column;
+  }
+
+  .word-box__word {
+    letter-spacing: 0.18em;
+  }
+
+  .leaderboard {
+    display: block;
+    overflow-x: auto;
+  }
+}

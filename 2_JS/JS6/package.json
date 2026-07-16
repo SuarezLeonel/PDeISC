@@ -1,0 +1,24 @@
+{
+  "name": "js6-ahorcado",
+  "version": "1.0.0",
+  "description": "Juego del ahorcado full-stack con Node.js, Express, MySQL, ES Modules y UI responsive.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "hangman",
+    "express",
+    "mysql",
+    "esmodules",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "jspdf": "^4.2.1",
+    "mysql2": "^3.14.1"
+  }
+}
