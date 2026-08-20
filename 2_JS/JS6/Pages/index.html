@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS6 | El Ahorcado</title>
+    <link rel="stylesheet" href="/Styles/main.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="eyebrow">Proyecto JS6</p>
+          <h1>El Ahorcado Full-Stack</h1>
+          <p class="hero__text">
+            Juego moderno, responsive y conectado a MySQL con score en tiempo real,
+            tema claro/oscuro y exportación PDF.
+          </p>
+        </div>
+
+        <div class="hero__actions">
+          <button id="themeToggle" class="button button--ghost" type="button">Cambiar Tema</button>
+          <button id="startGameButton" class="button" type="button">Iniciar Partida</button>
+          <button id="restartGameButton" class="button button--secondary" type="button">Reiniciar</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel panel--game">
+          <div class="panel__header">
+            <div>
+              <p class="panel__label">Estado del juego</p>
+              <h2>Adivina la palabra</h2>
+            </div>
+            <span id="resultBadge" class="badge">En curso</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat-card">
+              <span>Tiempo</span>
+              <strong id="timeElapsed">00:00</strong>
+            </div>
+            <div class="stat-card">
+              <span>Puntos</span>
+              <strong id="currentPoints">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Intentos restantes</span>
+              <strong id="attemptsLeft">6</strong>
+            </div>
+          </div>
+
+          <pre id="hangmanFrame" class="hangman" aria-label="Representación del ahorcado"></pre>
+
+          <div class="word-box">
+            <p class="word-box__label">Palabra oculta</p>
+            <p id="maskedWord" class="word-box__word">_ _ _ _ _ _ _ _</p>
+          </div>
+
+          <div class="input-area">
+            <label for="letterInput">Ingresa una letra</label>
+            <div class="input-row">
+              <input
+                id="letterInput"
+                type="text"
+                maxlength="1"
+                inputmode="text"
+                autocomplete="off"
+              />
+              <button id="guessButton" class="button" type="button">Probar Letra</button>
+            </div>
+            <p id="statusMessage" class="status" data-type="info">Esperando una nueva partida.</p>
+          </div>
+
+          <div class="used-letters">
+            <span>Letras usadas</span>
+            <p id="usedLetters">Sin letras utilizadas</p>
+          </div>
+        </article>
+
+        <aside class="panel panel--side">
+          <div class="panel__header">
+            <div>
+              <p class="panel__label">Persistencia</p>
+              <h2>Guardar y consultar score</h2>
+            </div>
+          </div>
+
+          <form id="saveScoreForm" class="save-form">
+            <label for="playerName">Nombre del jugador</label>
+            <input
+              id="playerName"
+              type="text"
+              maxlength="20"
+              placeholder="Tu nombre"
+              autocomplete="name"
+              required
+            />
+            <button id="saveScoreButton" class="button" type="submit" disabled>Guardar Score</button>
+          </form>
+
+          <div class="side-actions">
+            <button id="downloadPdfButton" class="button button--secondary" type="button" disabled>
+              Descargar Score
+            </button>
+            <button id="showLeaderboardButton" class="button button--ghost" type="button">
+              Mostrar Tabla de Posiciones
+            </button>
+          </div>
+
+          <div class="table-wrapper">
+            <div class="table-header">
+              <h3>Tabla de Posiciones</h3>
+              <p id="leaderboardStatus">Sincronizando scores...</p>
+            </div>
+
+            <table class="leaderboard">
+              <thead>
+                <tr>
+                  <th>Jugador</th>
+                  <th>Puntos</th>
+                  <th>Tiempo</th>
+                  <th>Fecha</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardBody"></tbody>
+            </table>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/vendor/jspdf/jspdf.umd.min.js"></script>
+    <script type="module" src="/Scripts/app.js"></script>
+  </body>
+</html>
